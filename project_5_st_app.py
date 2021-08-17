@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+import pickle
 
 page = st.sidebar.selectbox(
     'Select a page:',
@@ -52,10 +53,22 @@ if page == 'Detection App':
             image = Image.open('st-images/toxicity.png')
             st.image(image, caption='source: https://www.emojipng.com/preview/990569')
     elif selectbox == "Aggression Model":
+
+        # Add in XGboost model for aggression
+        with open('model_for_app/xgboost_aggression.pkl', mode='rb') as pickle_in:
+            pipe = pickle.load(pickle_in)
+
         text = st.text_input("Is this comment aggressive?")
-        options = ['aggressive','not aggressive']
-        st.write(f'This comment is {sample_output(text,options)}')
-        if sample_output(text,options) == "aggressive":
+
+        aggressive_result = pipe.predict([text])[0]
+
+        if aggressive_result == 0:
+            response = 'Not aggressive'
+        else:
+            response = 'AGGRESSIVE'
+
+        st.write(f'This comment is {response}')
+        if response == "AGGRESSIVE":
             image = Image.open('st-images/aggression.jpeg')
             st.image(image, caption='source: https://www.seekpng.com/ipng/u2q8q8e6o0w7u2e6_aggression-clip-art-angry-and-bite-the-smiley/')
     # with open('models/author_pipe.pkl', mode='rb') as pickle_in:
