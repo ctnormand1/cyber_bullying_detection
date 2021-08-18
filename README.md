@@ -15,9 +15,9 @@ contains a personal attack, toxic language, or aggressive tone.
 | Tue 2021-08-03 | Project kickoff                   | Complete      |
 | Fri 2021-08-06 | Choose topic & get data           | Complete      |
 | Thu 2021-08-12 | Cleaning & EDA complete           | Complete      |
-| Mon 2021-08-16 | Preliminary modeling complete     | In progress   |
-| Wed 2021-08-18 | Final model selection             |               |
-| Fri 2021-08-20 | Project complete (soft deadline)  |               |
+| Mon 2021-08-16 | Preliminary modeling complete     | Complete      |
+| Wed 2021-08-18 | Final model selection             | Complete      |
+| Fri 2021-08-20 | Project complete (soft deadline)  | In progress   |
 | Mon 2021-08-23 | Presentations                     |               |
 
 ### References
