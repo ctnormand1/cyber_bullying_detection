@@ -69,12 +69,13 @@ if page == 'Detection App':
             response = 'not an attack'
         else:
             response = 'AN ATTACK'
+
+        st.write(f'This comment is {response}')
+        if response == 'AN ATTACK':
             #inserting attack image
             image = Image.open('st-images/attack.png')
             col1, col2, col3 = st.beta_columns([1,1,1])
             col2.image(image, caption='source: https://emoji.gg/emoji/PikaAttack')
-
-        st.write(f'This comment is {response}')
 
     elif selectbox == "Toxicity Model":
         #opening pickle file for toxicity model
