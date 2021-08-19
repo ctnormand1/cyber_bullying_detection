@@ -60,26 +60,15 @@ if page == 'Detection App':
     selectbox = st.selectbox('Model',['Attack Model','Toxicity Model','Aggression Model'])
 
     if selectbox == "Attack Model":
-<<<<<<< HEAD
         #opening pickle file for attack model
-        with open('xgboost_aggression.pkl', mode='rb') as pickle_in:
+        with open('model_for_app/xgboost_attacks.pkl', mode='rb') as pickle_in:
             pipe = pickle.load(pickle_in)
         text = st.text_input("Is this comment an attack?")
-        #saving the prediction from attack model
-=======
-        # Add in XGboost model for attacks
-        with open('model_for_app/xgboost_aggression.pkl', mode='rb') as pickle_in:
-            pipe = pickle.load(pickle_in)
-
-        text = st.text_input("Is this comment an attack?")
-
->>>>>>> 59f333a1db2d296ce3bbcbaf7a4f9d9a3e5435a1
         attack_result = pipe.predict([text])[0]
         if attack_result == 0:
             response = 'not an attack'
         else:
             response = 'AN ATTACK'
-<<<<<<< HEAD
             #inserting attack image
             image = Image.open('st-images/attack.png')
             col1, col2, col3 = st.beta_columns([1,1,1])
@@ -89,24 +78,10 @@ if page == 'Detection App':
 
     elif selectbox == "Toxicity Model":
         #opening pickle file for toxicity model
-        with open('xgboost_toxic.pkl', mode='rb') as pickle_in:
+        with open('model_for_app/xgboost_toxic.pkl', mode='rb') as pickle_in:
             pipe = pickle.load(pickle_in)
         text = st.text_input("Is this comment toxic?")
         #saving the prediction from toxicity model
-=======
-
-        st.write(f'This comment is {response}')
-        if response == "AN ATTACK":
-            image = Image.open('st-images/attack.png')
-            st.image(image, caption='source: https://emoji.gg/emoji/PikaAttack')
-
-    elif selectbox == "Toxicity Model":
-        # Add in XGboost model for toxicity
-        with open('model_for_app/xgboost_toxic.pkl', mode='rb') as pickle_in:
-            pipe = pickle.load(pickle_in)
-
-        text = st.text_input("Is this comment toxic?")
->>>>>>> 59f333a1db2d296ce3bbcbaf7a4f9d9a3e5435a1
         toxic_result = pipe.predict([text])[0]
         if toxic_result == 0:
             response = 'not toxic'
@@ -116,24 +91,15 @@ if page == 'Detection App':
         st.write(f'This comment is {response}')
         if response == "TOXIC":
             image = Image.open('st-images/toxicity.png')
-<<<<<<< HEAD
             col1, col2, col3 = st.beta_columns([1,1,1])
             col2.image(image,caption='source: https://www.emojipng.com/preview/990569')
 
     elif selectbox == "Aggression Model":
-        # Add in XGboost model for aggression
-        with open('xgboost_aggression.pkl', mode='rb') as pickle_in:
-=======
-            st.image(image, caption='source: https://www.emojipng.com/preview/990569')
-
-    elif selectbox == "Aggression Model":
-        # Add in XGboost model for aggression
+        # opening pickle file for aggression model
         with open('model_for_app/xgboost_aggression.pkl', mode='rb') as pickle_in:
->>>>>>> 59f333a1db2d296ce3bbcbaf7a4f9d9a3e5435a1
             pipe = pickle.load(pickle_in)
 
         text = st.text_input("Is this comment aggressive?")
-
         aggressive_result = pipe.predict([text])[0]
         if aggressive_result == 0:
             response = 'not aggressive'
@@ -143,9 +109,5 @@ if page == 'Detection App':
         st.write(f'This comment is {response}')
         if response == "AGGRESSIVE":
             image = Image.open('st-images/aggression.jpeg')
-<<<<<<< HEAD
             col1, col2, col3 = st.beta_columns([1,1,1])
             col2.image(image,use_column_width=True,caption='source: https://www.seekpng.com/ipng/u2q8q8e6o0w7u2e6_aggression-clip-art-angry-and-bite-the-smiley/')
-=======
-            st.image(image, caption='source: https://www.seekpng.com/ipng/u2q8q8e6o0w7u2e6_aggression-clip-art-angry-and-bite-the-smiley/')
->>>>>>> 59f333a1db2d296ce3bbcbaf7a4f9d9a3e5435a1
