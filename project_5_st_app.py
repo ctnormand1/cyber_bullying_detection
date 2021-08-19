@@ -37,7 +37,7 @@ if page == 'Detection App':
     selectbox = st.selectbox('Model',['Attack Model','Toxicity Model','Aggression Model'])
     if selectbox == "Attack Model":
         # Add in XGboost model for attacks
-        with open('model_for_app/xgboost_aggression.pkl', mode='rb') as pickle_in:
+        with open('model_for_app/xgboost_attacks.pkl', mode='rb') as pickle_in:
             pipe = pickle.load(pickle_in)
 
         text = st.text_input("Is this comment an attack?")
