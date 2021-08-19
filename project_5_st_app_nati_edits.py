@@ -4,6 +4,8 @@ import numpy as np
 import pickle
 from PIL import Image
 import pickle
+import xgboost
+from scipy.sparse import csr_matrix
 
 page = st.sidebar.selectbox(
     'Select a page:',
@@ -97,12 +99,22 @@ if page == 'Detection App':
 
     elif selectbox == "Aggression Model":
         # opening pickle file for aggression model
-        with open('model_for_app/xgboost_aggression.pkl', mode='rb') as pickle_in:
-            pipe = pickle.load(pickle_in)
+        #with open('model_for_app/xgboost_aggression.json', mode='rb') as json_in:
+        #    pipe = load(json_in)
+        pipe = xgboost.Booster()
+        pipe.load_model('model_for_app/xgboost_aggression.json')
 
         text = st.text_input("Is this comment aggressive?")
-        aggressive_result = pipe.predict([text])[0]
-        if aggressive_result == 0:
+
+        with open('model_for_app/xgboost_aggression_cv.pkl', mode='rb') as pickle_in:
+            cvec = pickle.load(pickle_in)
+
+        text_cv = cvec.transform([text])
+        text_gb = xgboost.DMatrix(text_cv)
+
+        aggressive_result = pipe.predict(text_gb)
+
+        if aggressive_result <= 0.5:
             response = 'not aggressive'
         else:
             response = 'AGGRESSIVE'
