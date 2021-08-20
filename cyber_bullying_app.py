@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import pickle
 from PIL import Image
-import xgboost
 
 page = st.sidebar.selectbox(
     'Select a page:',
@@ -26,8 +25,8 @@ if page == 'About Us':
     Throughout this 12-week program, we have learned everything from simple regression to Neural Neworks.
     We hope this project will aid in the fight against cyberbullying.
 
-    Have questions about the project? Email a team member here:
-    [Nati](#mailto:nati.marcus24@gmail.com), [Rebecca](#mailto:bb@gmail.com), [Julia](#mailto:djdjdj@dndn.com), [Christian](#mailto:chris@mail.com)
+    Have questions about the project? Contact a team member here:
+    [Nati](https://www.linkedin.com/in/nathaniel-marcus/), [Rebecca](https://www.linkedin.com/in/rebecca-j-patterson/), [Julia](https://www.linkedin.com/in/julia-rowe/), [Christian](https://www.linkedin.com/in/cnormand/)
     ''')
     ga_logo = Image.open('st-images/ga-logo.png').convert('RGBA')
     st.image(ga_logo,width=700,caption='source: https://www.vhv.rs/viewpic/hxihoiJ_vector-point-assembly-general-assembly-logo-png-transparent/')
