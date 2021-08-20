@@ -2,3 +2,6 @@
 backgroundColor="#adadea"
 secondaryBackgroundColor="#9188dc"
 textColor="#fdf4f4"
+
+[server]
+runOnSave="true"
