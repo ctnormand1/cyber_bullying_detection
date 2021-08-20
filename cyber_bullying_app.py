@@ -8,28 +8,6 @@ page = st.sidebar.selectbox(
     'Select a page:',
     ('Home', 'Detection App', 'About Us')
 )
-if page == 'About Us':
-    st.title("Meet the Team")
-    nati = Image.open('st-images/nati.jpg')
-    rebecca = Image.open('st-images/rebecca.jpg')
-    julia = Image.open('st-images/julia.png')
-    christian = Image.open('st-images/christian.jpg')
-    col1, col2, col3, col4 = st.beta_columns([1,1,1,1])
-    #st.image([nati,rebecca,julia,christian])
-    col1.image(nati,width=162)
-    col2.image(rebecca,use_column_width=True)
-    col3.image(julia,use_column_width=True)
-    col4.image(christian,use_column_width=True)
-    st.markdown('''
-    We are data scientists currently enrolled in General Assembly's Data Science Immersive course.
-    Throughout this 12-week program, we have learned everything from simple regression to Neural Neworks.
-    We hope this project will aid in the fight against cyberbullying.
-
-    Have questions about the project? Contact a team member here:
-    [Nati](https://www.linkedin.com/in/nathaniel-marcus/), [Rebecca](https://www.linkedin.com/in/rebecca-j-patterson/), [Julia](https://www.linkedin.com/in/julia-rowe/), [Christian](https://www.linkedin.com/in/cnormand/)
-    ''')
-    ga_logo = Image.open('st-images/ga-logo.png').convert('RGBA')
-    st.image(ga_logo,width=700,caption='source: https://www.vhv.rs/viewpic/hxihoiJ_vector-point-assembly-general-assembly-logo-png-transparent/')
 
 if page == 'Home':
     st.title('Detecting Cyberbullying')
@@ -112,3 +90,26 @@ if page == 'Detection App':
             image = Image.open('st-images/aggression.jpeg')
             col1, col2, col3 = st.beta_columns([1,1,1])
             col2.image(image,use_column_width=True,caption='source: https://www.seekpng.com/ipng/u2q8q8e6o0w7u2e6_aggression-clip-art-angry-and-bite-the-smiley/')
+
+if page == 'About Us':
+    st.title("Meet the Team")
+    nati = Image.open('st-images/nati.jpg')
+    rebecca = Image.open('st-images/rebecca.jpg')
+    julia = Image.open('st-images/julia.png')
+    christian = Image.open('st-images/christian.jpg')
+    col1, col2, col3, col4 = st.beta_columns([1,1,1,1])
+    #st.image([nati,rebecca,julia,christian])
+    col1.image(nati,width=162)
+    col2.image(rebecca,use_column_width=True)
+    col3.image(julia,use_column_width=True)
+    col4.image(christian,use_column_width=True)
+    st.markdown('''
+    We are data scientists currently enrolled in General Assembly's Data Science Immersive course.
+    Throughout this 12-week program, we have learned everything from simple regression to Neural Neworks.
+    We hope this project will aid in the fight against cyberbullying.
+
+    Have questions about the project? Contact a team member here:
+    [Nati](https://www.linkedin.com/in/nathaniel-marcus/), [Rebecca](https://www.linkedin.com/in/rebecca-j-patterson/), [Julia](https://www.linkedin.com/in/julia-rowe/), [Christian](https://www.linkedin.com/in/cnormand/)
+    ''')
+    ga_logo = Image.open('st-images/ga-logo.png').convert('RGBA')
+    st.image(ga_logo,width=700,caption='source: https://www.vhv.rs/viewpic/hxihoiJ_vector-point-assembly-general-assembly-logo-png-transparent/')
