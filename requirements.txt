@@ -1,0 +1,6 @@
+cloudpickle==1.6.0
+numpy==1.19.5
+pandas==1.2.4
+Pillow==8.2.0
+streamlit==0.85.1
+xgboost==1.3.3
